@@ -1,13 +1,9 @@
 #SingleInstance force
 
-DebugWindow_HWND:=0
-
-/*
-*/
+global DebugWindow_HWND:=0
 
 DebugWindow_Init()
 {
-  global DebugWindow_HWND
   global DebugWindow_TextField
   if(!DebugWindow_HWND) {
     Gui New,hwndDebugWindow_HWND ToolWindow,DebugWindow
