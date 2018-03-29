@@ -7,14 +7,23 @@ global GhostWindow_Opacity:=0
 global GhostWindow_FormerOpacity:=0
 
 +#G::
-  xx=%GhostWindow_HWND%,%GhostWindow_Opacity%,%GhostWindow_FormerOpacity%
-  x:=DebugWindow(xx,1)
+  global GhostWindow_HWND
+  global GhostWindow_Opacity
+  global GhostWindow_FormerOpacity
+  
+  x:=ConsoleLog("H " . GhostWindow_HWND)
+  x:=ConsoleLog("O " . GhostWindow_Opacity)
+  x:=ConsoleLog("F " . GhostWindow_FormerOpacity)
+
   if(!GhostWindow_HWND) {
-  global GhostWindow_HWND,GhostWindow_Opacity,GhostWindow_FormerOpacity
     WinGet GhostWindow_HWND,ID,A
-    x:=DebugWindow("HWND " . GhostWindow_HWND,1)
+    x:=ConsoleLog("HWND " . GhostWindow_HWND)
     WinGet GhostWindow_FormerOpacity, Transparent, ahk_id %GhostWindow_HWND%
     GhostWindow_Opacity:=GhostWindow_FormerOpacity
+
+    x:=ConsoleLog("_H " . GhostWindow_HWND)
+    x:=ConsoleLog("_O " . GhostWindow_Opacity)
+    x:=ConsoleLog("_F " . GhostWindow_FormerOpacity)
   }
 
   GhostWindow_Opacity-=20
